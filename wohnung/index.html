@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Wohnungsbewerbung von Roman Pryshchepa in Berlin. Gesucht: eine 1- bis 2-Zimmer-Wohnung bis 50 m².">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#f6f5f1">
+  <title>Wohnungsbewerbung · Roman Pryshchepa</title>
+  <style>
+    :root {
+      --ink: #172c39;
+      --muted: #51616b;
+      --paper: #f6f5f1;
+      --white: #fff;
+      --line: #dce2e2;
+      --accent: #266578;
+      --accent-dark: #164654;
+      --soft: #eaf2f2;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: var(--accent-dark); }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
+    .skip { position: absolute; top: -90px; left: 16px; padding: 10px 16px; background: var(--white); z-index: 10; }
+    .skip:focus { top: 12px; }
+    .topbar { border-bottom: 1px solid var(--line); }
+    .topbar .wrap { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; font-size: .84rem; font-weight: 750; letter-spacing: .075em; text-transform: uppercase; }
+    .mark { display: grid; place-items: center; width: 37px; height: 37px; border: 1.5px solid var(--ink); border-radius: 50%; font-size: .72rem; letter-spacing: -.05em; }
+    .toplink { font-size: .9rem; font-weight: 650; text-underline-offset: 4px; }
+    .hero { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr); gap: clamp(32px, 6vw, 96px); align-items: center; padding-block: 78px 66px; }
+    .eyebrow { color: var(--accent-dark); text-transform: uppercase; font-size: .78rem; font-weight: 800; letter-spacing: .17em; margin: 0 0 21px; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(3.1rem, 6vw, 5.2rem); font-weight: 400; line-height: 1.04; letter-spacing: -.046em; margin: 0 0 25px; }
+    .lead { max-width: 610px; font-size: clamp(1.08rem, 2vw, 1.3rem); line-height: 1.6; margin: 0; color: #314651; }
+    .print-contact { display: none; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 19px; border: 1px solid var(--accent-dark); border-radius: 6px; color: var(--white); background: var(--accent-dark); text-decoration: none; font: inherit; font-size: .92rem; font-weight: 700; cursor: pointer; }
+    .button:hover { background: #0f3845; }
+    .button.secondary { background: transparent; color: var(--accent-dark); }
+    .button.secondary:hover { background: var(--soft); }
+    .portrait { margin: 0; position: relative; }
+    .portrait::before { content: ""; position: absolute; inset: 15px -13px -13px 15px; border: 1px solid #b9c9c9; z-index: -1; }
+    .portrait img { display: block; width: 100%; aspect-ratio: 4 / 4.5; object-fit: cover; background: #d6dedc; border: 1px solid var(--line); }
+    .portrait figcaption { margin-top: 17px; color: var(--muted); font-size: .77rem; letter-spacing: .12em; text-transform: uppercase; }
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-block: 25px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .fact-label { display: block; font-size: .74rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .fact-value { font-size: 1.15rem; font-weight: 700; }
+    .content { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: 48px; padding-block: 68px 76px; }
+    h2 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(1.75rem, 3vw, 2.3rem); font-weight: 400; line-height: 1.2; margin: 0 0 22px; letter-spacing: -.025em; }
+    .letter { background: var(--white); border: 1px solid var(--line); padding: clamp(27px, 4vw, 43px); box-shadow: 0 15px 35px #172c3909; }
+    .letter .subject { font-weight: 750; margin-top: 0; }
+    .letter p { margin: 0 0 19px; }
+    .letter p:last-child { margin-bottom: 0; }
+    .side { padding-top: 4px; }
+    .side > p { color: var(--muted); margin: 0 0 23px; }
+    .documents { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
+    .documents li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--line); padding: 13px 0; font-size: .93rem; }
+    .documents span:last-child { flex-shrink: 0; color: var(--accent-dark); font-size: .78rem; font-weight: 750; }
+    .note { margin-top: 25px; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--soft); color: #314651; font-size: .9rem; }
+    .contact { background: var(--ink); color: var(--white); padding: 43px 0; }
+    .contact .wrap { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .contact h2 { margin: 0 0 8px; }
+    .contact p { margin: 0; color: #d7e4e7; }
+    .contact .button { flex-shrink: 0; background: var(--white); color: var(--ink); border-color: var(--white); }
+    .contact .button:hover { background: var(--soft); }
+    footer { padding-block: 26px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .82rem; }
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; padding-block: 48px 45px; gap: 37px; }
+      .portrait { width: min(100%, 390px); }
+      .content { grid-template-columns: 1fr; gap: 42px; padding-block: 48px 58px; }
+      .facts { gap: 15px; }
+      .contact .wrap { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 470px) {
+      .wrap { width: min(100% - 32px, 1080px); }
+      .topbar .wrap { min-height: 67px; }
+      .brand { font-size: .74rem; }
+      .toplink { font-size: .82rem; }
+      h1 { font-size: 3rem; }
+      .facts { grid-template-columns: 1fr 1fr; }
+      .fact:last-child { grid-column: 1 / -1; }
+      .actions .button { width: 100%; }
+      .letter { padding: 24px; }
+    }
+    @media print {
+      @page { size: A4; margin: 16mm; }
+      :root { background: white; color: #172c39; font-size: 10pt; }
+      .wrap { width: 100%; }
+      .skip, .topbar, .actions, .contact, footer { display: none !important; }
+      .hero { display: flex; align-items: center; gap: 28px; padding: 0 0 20px; }
+      .hero > div { flex: 1; }
+      h1 { font-size: 31pt; margin-bottom: 13px; }
+      .lead { font-size: 11pt; }
+      .print-contact { display: block; margin: 10px 0 0; font-size: 10pt; }
+      .portrait { order: 2; width: 108px; flex: 0 0 108px; }
+      .portrait::before, .portrait figcaption { display: none; }
+      .portrait img { aspect-ratio: 1; }
+      .facts { padding-block: 13px; }
+      .content { display: block; padding: 23px 0 0; }
+      .content h2 { font-size: 17pt; margin-bottom: 13px; }
+      .letter { padding: 0; border: 0; box-shadow: none; }
+      .letter p { margin-bottom: 11px; }
+      .side { margin-top: 24px; }
+      .side > p { margin-bottom: 8px; }
+      .documents { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+      .documents li { padding: 6px 0; }
+      .note { margin-top: 12px; padding: 9px 12px; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt springen</a>
+  <header class="topbar">
+    <div class="wrap">
+      <div class="brand"><span class="mark" aria-hidden="true">RP</span> Wohnungsbewerbung</div>
+      <a class="toplink" href="mailto:roman.pryshchepa.01@gmail.com?subject=Wohnungsbewerbung%20Roman%20Pryshchepa">Kontakt per E-Mail ↗</a>
+    </div>
+  </header>
+
+  <main id="inhalt">
+    <div class="wrap">
+      <section class="hero" aria-labelledby="name">
+        <div>
+          <p class="eyebrow">Bewerberprofil · Berlin</p>
+          <h1 id="name">Roman<br>Pryshchepa</h1>
+          <p class="lead">Ich suche eine 1- bis 2-Zimmer-Wohnung in Berlin mit bis zu 50 m². Ein ruhiges, gepflegtes Zuhause und eine verlässliche Kommunikation sind mir wichtig.</p>
+          <p class="print-contact">Kontakt: roman.pryshchepa.01@gmail.com</p>
+          <div class="actions">
+            <a class="button" href="mailto:roman.pryshchepa.01@gmail.com?subject=Wohnungsbesichtigung%20Roman%20Pryshchepa">Besichtigung anfragen <span aria-hidden="true">↗</span></a>
+            <button class="button secondary" type="button" onclick="window.print()">Profil als PDF speichern</button>
+          </div>
+        </div>
+        <figure class="portrait">
+          <img src="https://avatars.githubusercontent.com/u/224189750?v=4&amp;s=640" alt="Porträt von Roman Pryshchepa" width="480" height="540">
+          <figcaption>Persönliches Bewerberprofil</figcaption>
+        </figure>
+      </section>
+
+      <section class="facts" aria-label="Wohnungssuche auf einen Blick">
+        <div class="fact"><span class="fact-label">Gesucht</span><span class="fact-value">1–2 Zimmer</span></div>
+        <div class="fact"><span class="fact-label">Wohnfläche</span><span class="fact-value">Bis 50 m²</span></div>
+        <div class="fact"><span class="fact-label">Ort</span><span class="fact-value">Berlin</span></div>
+      </section>
+
+      <div class="content">
+        <section aria-labelledby="anschreiben">
+          <h2 id="anschreiben">Kurzes Anschreiben</h2>
+          <div class="letter">
+            <p class="subject">Betreff: Bewerbung um eine Wohnung in Berlin</p>
+            <p>Sehr geehrte Damen und Herren,</p>
+            <p>mein Name ist Roman Pryshchepa. Ich suche eine 1- bis 2-Zimmer-Wohnung mit bis zu 50 m² in Berlin. Über die Gelegenheit, Ihre Wohnung zu besichtigen und mich persönlich vorzustellen, würde ich mich sehr freuen.</p>
+            <p>Meine Bewerbungsunterlagen übermittle ich Ihnen gern nach Rücksprache für ein konkretes Wohnungsangebot.</p>
+            <p>Mit freundlichen Grüßen<br>Roman Pryshchepa</p>
+          </div>
+        </section>
+
+        <section class="side" aria-labelledby="unterlagen">
+          <h2 id="unterlagen">Unterlagen</h2>
+          <p>Welche Nachweise vorliegen und benötigt werden, kläre ich gern im persönlichen Kontakt.</p>
+          <ul class="documents">
+            <li><span>Anschreiben und Bewerberprofil</span><span>Hier ansehen</span></li>
+            <li><span>Mieterselbstauskunft</span><span>Auf Anfrage</span></li>
+            <li><span>WBS, sofern bewilligt</span><span>Auf Anfrage</span></li>
+            <li><span>Finanzierungsnachweise</span><span>Auf Anfrage</span></li>
+            <li><span>Bonitätsnachweis, falls vorhanden</span><span>Auf Anfrage</span></li>
+          </ul>
+          <p class="note">Vertrauliche Dokumente werden nicht öffentlich bereitgestellt. Bitte nennen Sie bei Ihrer Anfrage die Wohnung oder das Inserat.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="contact" aria-labelledby="kontakt">
+      <div class="wrap">
+        <div>
+          <h2 id="kontakt">Kontakt aufnehmen</h2>
+          <p>Für Besichtigungstermine und Fragen zur Bewerbung.</p>
+        </div>
+        <a class="button" href="mailto:roman.pryshchepa.01@gmail.com?subject=Wohnungsbewerbung%20Roman%20Pryshchepa">E-Mail schreiben <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap"><span>Roman Pryshchepa · Berlin</span><span>Wohnungsbewerbung</span></footer>
+</body>
+</html>
