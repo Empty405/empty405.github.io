@@ -45,10 +45,11 @@
     .button:hover { background: #0f3845; }
     .button.secondary { background: transparent; color: var(--accent-dark); }
     .button.secondary:hover { background: var(--soft); }
-    .portrait { margin: 0; position: relative; }
-    .portrait::before { content: ""; position: absolute; inset: 15px -13px -13px 15px; border: 1px solid #b9c9c9; z-index: -1; }
-    .portrait img { display: block; width: 100%; aspect-ratio: 4 / 4.5; object-fit: cover; background: #d6dedc; border: 1px solid var(--line); }
-    .portrait figcaption { margin-top: 17px; color: var(--muted); font-size: .77rem; letter-spacing: .12em; text-transform: uppercase; }
+    .portrait { margin: 0; min-width: 0; }
+    .portrait-media { position: relative; isolation: isolate; }
+    .portrait-media::before { content: ""; position: absolute; inset: 12px -12px -12px 12px; border: 1px solid #b9c9c9; z-index: -1; }
+    .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 4.5; object-fit: cover; background: #d6dedc; border: 1px solid var(--line); }
+    .portrait figcaption { margin-top: 24px; color: var(--muted); font-size: .77rem; letter-spacing: .12em; text-transform: uppercase; }
     .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-block: 25px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
     .fact-label { display: block; font-size: .74rem; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
     .fact-value { font-size: 1.15rem; font-weight: 700; }
@@ -62,6 +63,7 @@
     .side > p { color: var(--muted); margin: 0 0 23px; }
     .documents { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--line); }
     .documents li { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--line); padding: 13px 0; font-size: .93rem; }
+    .documents span:first-child { min-width: 0; overflow-wrap: anywhere; }
     .documents span:last-child { flex-shrink: 0; color: var(--accent-dark); font-size: .78rem; font-weight: 750; }
     .note { margin-top: 25px; padding: 16px 18px; border-left: 3px solid var(--accent); background: var(--soft); color: #314651; font-size: .9rem; }
     .contact { background: var(--ink); color: var(--white); padding: 43px 0; }
@@ -73,16 +75,16 @@
     footer { padding-block: 26px; display: flex; justify-content: space-between; gap: 16px; color: var(--muted); font-size: .82rem; }
     @media (max-width: 760px) {
       .hero { grid-template-columns: 1fr; padding-block: 48px 45px; gap: 37px; }
-      .portrait { width: min(100%, 390px); }
+      .portrait { width: min(calc(100% - 12px), 390px); }
       .content { grid-template-columns: 1fr; gap: 42px; padding-block: 48px 58px; }
       .facts { gap: 15px; }
       .contact .wrap { align-items: flex-start; flex-direction: column; }
     }
     @media (max-width: 470px) {
       .wrap { width: min(100% - 32px, 1080px); }
-      .topbar .wrap { min-height: 67px; }
+      .topbar .wrap { min-height: 67px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 10px; padding-block: 14px; }
       .brand { font-size: .74rem; }
-      .toplink { font-size: .82rem; }
+      .toplink { font-size: .82rem; margin-left: 49px; }
       h1 { font-size: 3rem; }
       .facts { grid-template-columns: 1fr 1fr; }
       .fact:last-child { grid-column: 1 / -1; }
@@ -94,20 +96,21 @@
       :root { background: white; color: #172c39; font-size: 10pt; }
       .wrap { width: 100%; }
       .skip, .topbar, .actions, .contact, footer { display: none !important; }
-      .hero { display: flex; align-items: center; gap: 28px; padding: 0 0 20px; }
-      .hero > div { flex: 1; }
-      h1 { font-size: 31pt; margin-bottom: 13px; }
-      .lead { font-size: 11pt; }
-      .print-contact { display: block; margin: 10px 0 0; font-size: 10pt; }
-      .portrait { order: 2; width: 108px; flex: 0 0 108px; }
-      .portrait::before, .portrait figcaption { display: none; }
-      .portrait img { aspect-ratio: 1; }
-      .facts { padding-block: 13px; }
-      .content { display: block; padding: 23px 0 0; }
+      .hero { display: grid; grid-template-columns: minmax(0, 1fr) 31mm; align-items: start; gap: 8mm; padding: 0; padding-block: 0 6mm; break-inside: avoid; }
+      .eyebrow { font-size: 8pt; margin-bottom: 3mm; }
+      h1 { font-size: 29pt; margin-bottom: 4mm; }
+      .lead { font-size: 10pt; line-height: 1.45; }
+      .print-contact { display: block; margin: 3mm 0 0; font-size: 9pt; overflow-wrap: anywhere; }
+      .portrait { width: 31mm; justify-self: end; }
+      .portrait-media::before, .portrait figcaption { display: none; }
+      .portrait img { width: 31mm; height: 35mm; aspect-ratio: auto; object-fit: cover; }
+      .facts { grid-template-columns: repeat(3, 1fr); padding-block: 13px; break-inside: avoid; }
+      .fact:last-child { grid-column: auto; }
+      .content { display: block; padding: 0; padding-block: 6mm 0; }
       .content h2 { font-size: 17pt; margin-bottom: 13px; }
-      .letter { padding: 0; border: 0; box-shadow: none; }
+      .letter { padding: 0; border: 0; box-shadow: none; break-inside: avoid; }
       .letter p { margin-bottom: 11px; }
-      .side { margin-top: 24px; }
+      .side { margin-top: 24px; break-inside: avoid; }
       .side > p { margin-bottom: 8px; }
       .documents { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
       .documents li { padding: 6px 0; }
@@ -139,7 +142,9 @@
           </div>
         </div>
         <figure class="portrait">
-          <img src="https://avatars.githubusercontent.com/u/224189750?v=4&amp;s=640" alt="Porträt von Roman Pryshchepa" width="480" height="540">
+          <div class="portrait-media">
+            <img src="./portrait.png" alt="Porträt von Roman Pryshchepa" width="1536" height="1536" fetchpriority="high">
+          </div>
           <figcaption>Persönliches Bewerberprofil</figcaption>
         </figure>
       </section>
